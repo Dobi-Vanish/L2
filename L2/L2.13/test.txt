@@ -1,0 +1,8 @@
+animal1,animal2,animal3,animal4
+cat;dog;fox;cow
+bird:fish:snake:lion
+first second third fourth
+apple|banana|cherry|date
+one,two,three,four,five,six
+no_delimiter_here
+last,example,for,testing
