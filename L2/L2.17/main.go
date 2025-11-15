@@ -106,35 +106,6 @@ func processTelnetCommands(data []byte) []byte {
 	return result
 }
 
-/*func handleTelnetCommand(cmd, opt byte) []byte {
-	switch cmd {
-	case WILL:
-		switch opt {
-		case 1: // ECHO
-			return []byte{IAC, DONT, opt}
-		case 3: // SUPPRESS GO AHEAD
-			return []byte{IAC, DO, opt}
-		default:
-			return []byte{IAC, DONT, opt}
-		}
-	case DO:
-		switch opt {
-		case 1: // ECHO
-			return []byte{IAC, WONT, opt}
-		case 3: // SUPPRESS GO AHEAD
-			return []byte{IAC, WILL, opt}
-		default:
-			return []byte{IAC, WONT, opt}
-		}
-	case WONT:
-		return []byte{IAC, DONT, opt}
-	case DONT:
-		return []byte{IAC, WONT, opt}
-	}
-
-	return nil
-} */
-
 func writeToSocket(conn net.Conn, done chan<- bool) {
 	scanner := bufio.NewScanner(os.Stdin)
 
@@ -151,7 +122,7 @@ func writeToSocket(conn net.Conn, done chan<- bool) {
 
 	if err := scanner.Err(); err != nil {
 		if err == io.EOF {
-			fmt.Println("\nFinishing...\n")
+			fmt.Println("\nFinishing...")
 		} else {
 			log.Printf("Error reading enter: %v", err)
 		}
